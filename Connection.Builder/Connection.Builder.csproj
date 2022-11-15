@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PackageId>Connection.Builder.15.11.2022.001.Test</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>atari-monk</Authors>
+        <Company></Company>
+        <PackageTags>Connection builder</PackageTags>
+        <Description>
+            Connection builder
+        </Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+</Project>
