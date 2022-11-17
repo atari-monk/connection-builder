@@ -7,15 +7,16 @@ public class ConnectionBuilder : IConnectionBuilder
 {
     private readonly WebApplicationBuilder builder;
     private readonly IConfiguration config;
-    private string server;
-    private string port;
-    private string user;
-    private string password;
-    private string database;
+    private readonly string server;
+    private readonly string port;
+    private readonly string user;
+    private readonly string password;
+    private readonly string database;
 
     public string DbConnectionString { get; }
+    public string LocalDbConnectionString { get; }
 
-    public ConnectionBuilder(WebApplicationBuilder builder)
+    public ConnectionBuilder(WebApplicationBuilder builder, string localDbName)
     {
         this.builder = builder;
         config = builder.Configuration;
@@ -25,6 +26,7 @@ public class ConnectionBuilder : IConnectionBuilder
         password = GetPassword();
         database = GetDatabase();
         DbConnectionString = GetDbConn();
+        LocalDbConnectionString = $"Server=(localdb)\\mssqllocaldb;Database={localDbName};Trusted_Connection=True;MultipleActiveResultSets=true";
     }
 
     private string GetServer() => config["Server"] ?? throw new ArgumentException("Missing Server secret!");
