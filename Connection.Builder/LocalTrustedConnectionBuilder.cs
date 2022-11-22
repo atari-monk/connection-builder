@@ -6,8 +6,8 @@ public class LocalTrustedConnectionBuilder : ConnectionBuilder
 
     public LocalTrustedConnectionBuilder(string localDbName)
     {
-        data = new ConnectionData("(localdb)\\mssqllocaldb", "1433", "", "", localDbName);
+        data = new ConnectionData(@"(localdb)\mssqllocaldb", "", "", "", localDbName);
     }
 
-    public override string GetDbConnectionString() => $"Server={data.Server},{data.Port};Database={data.Database};Trusted_Connection=True;MultipleActiveResultSets=true";
+    public override string GetDbConnectionString() => $"Server={data.Server};Database={data.Database};Trusted_Connection=True;MultipleActiveResultSets=true";
 }
